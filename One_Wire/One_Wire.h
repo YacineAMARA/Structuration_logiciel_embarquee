@@ -6,5 +6,7 @@ typedef struct {
 	uint16_t 		pin;
 }ONEWIRE_PINOUT;
 
+uint8_t ONEWIRE_Reset(ONEWIRE_PINOUT* onewire_pinout);
+
 
 #endif
