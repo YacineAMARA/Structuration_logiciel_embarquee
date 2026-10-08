@@ -60,6 +60,10 @@ void DWT_Delay(uint32_t _us)
 }
 
 
+void delay_us(uint32_t delay)
+{
+	DWT_Delay(delay);
+}
 
 // Get MCO HSE to PA8 (D7)
 // the MCO1PRE[2:0] and MCO1[1:0]
