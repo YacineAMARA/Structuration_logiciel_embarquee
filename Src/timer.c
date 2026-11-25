@@ -60,9 +60,28 @@ void DWT_Delay(uint32_t _us)
 }
 
 
+
+void TIM2_Init(void)
+{
+    RCC->APB1ENR |= RCC_APB1ENR_TIM2EN; //horloge on
+
+    TIM2->CR1 &= ~TIM_CR1_CEN;
+
+    TIM2->PSC = 15;
+    TIM2->ARR = 0xFFFFFFFF;
+    TIM2->CNT = 0;
+
+    TIM2->EGR = TIM_EGR_UG;
+
+    TIM2->CR1 |= TIM_CR1_CEN;
+}
+
 void delay_us(uint32_t delay)
 {
-	DWT_Delay(delay);
+	//DWT_Delay(delay);
+
+	TIM2->CNT =0 ;
+	while(TIM2->CNT < delay);
 }
 
 // Get MCO HSE to PA8 (D7)

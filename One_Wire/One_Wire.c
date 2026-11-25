@@ -1,3 +1,8 @@
+#include <stdint.h>
+#include <stm32f446xx.h>
+#include "gpio.h"
+#include "timer.h"
+
 #include "One_Wire.h"
 
 uint8_t ONEWIRE_Reset(ONEWIRE_PINOUT* onewire_pinout)
